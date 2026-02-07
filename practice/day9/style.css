@@ -1,0 +1,60 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+.container {
+  height: 2000px;
+  /* background-color: blue */
+}
+.static {
+  border: 1px solid black;
+  position: static;
+  left: 0px;
+  right: 0px;
+  top: 0px;
+  bottom: 0px;
+}
+.relative {
+  border: 1px solid black;
+  height: 200px;
+  position: relative;
+  left: 0px;
+  right: 0px;
+  top: 0px;
+  bottom: 0px;
+}
+.fixed {
+  /* background-color: orange; */
+  background-color: red;
+  border: 1px solid orange;
+  position: fixed;
+  left: 200px;
+  right: 0px;
+  top: 400px;
+  bottom: 0px;
+}
+.sticky {
+  position: sticky;
+  top: 0;
+  background-color: green;
+}
+.parent {
+  /* position: relative; */
+  height: 400px;
+  width: 80vw;
+  background-color: aqua;
+}
+.child {
+  height: 50px;
+  background-color: red;
+  padding: 10px;
+  position: absolute;
+  top: 0;
+}
+
+@media (min-width: 300px) and (max-width: 768px) {
+  .fixed {
+    background-color: green;
+  }
+}

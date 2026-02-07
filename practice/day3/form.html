@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="form.css" />
+  </head>
+  <body>
+    <h1>Table Example</h1>
+    <table style="border-collapse: collapse" cellpadding="10" border="1">
+      <tr>
+        <th>Name</th>
+        <th>Age</th>
+        <th>City</th>
+      </tr>
+
+      <tr>
+        <td>Alice</td>
+        <td>30</td>
+        <td>New York</td>
+      </tr>
+      <tr>
+        <td>Bob</td>
+        <td>25</td>
+        <td>Los Angeles</td>
+      </tr>
+      <tr>
+        <td>Charlie</td>
+        <td>35</td>
+        <td>Chicago</td>
+        <td>bale</td>
+      </tr>
+    </table>
+
+    <h1>Form Example</h1>
+    <form>
+      <div>
+        <label for="username">firstname</label>
+        <input
+          id="username"
+          name="username"
+          value="sgahdjgf"
+          type="text"
+          placeholder="Enter your name"
+        />
+      </div>
+      <br />
+      <div>
+        <label for="username">lastname</label>
+        <input
+          id="username"
+          name="username"
+          value=""
+          type="text"
+          placeholder="Enter your name"
+        />
+      </div>
+      <br />
+      <div>
+        <label for="email">Email:</label>
+        <input type="email" required />
+      </div>
+      <div>
+        <input type="checkbox" id="subscribe" />
+        <label for="subscribe">Subscribe to newsletter</label>
+      </div>
+      <div>
+        <label for="country">Country:</label>
+        <select id="country" name="country">
+          <option value="usa">USA</option>
+          <option value="canada">Canada</option>
+          <option value="uk">UK</option>
+          <option value="australia">Australia</option>
+          <option value="india">India</option>
+          <option>bangladesh</option>
+        </select>
+      </div>
+      <div>
+        <input type="radio" id="html" name="fav_language" value="HTML" />
+        <label for="html">HTML</label><br />
+        <input type="radio" id="css" name="fav_language" value="CSS" />
+        <label for="css">CSS</label><br />
+        <input
+          type="radio"
+          id="javascript"
+          name="fav_language"
+          value="JavaScript"
+        />
+        <label for="javascript">JavaScript</label>
+      </div>
+      <div>
+        <h1>Gender:</h1>
+        <input type="radio" name="gender" id="male" value="male" />
+        <label for="male">Male</label>
+        <input type="radio" name="gender" id="female" value="female" />
+        <label for="female">Female</label>
+        <input type="radio" name="gender" id="others" value="others" />
+        <label for="others">Others</label>
+      </div>
+      <div>
+        <label>comments</label>
+        <br />
+        <textarea
+          rows="4"
+          cols="50"
+          placeholder="Enter your comments here"
+        ></textarea>
+      </div>
+      <div>
+        <input type="password" />
+        <input type="date" />
+        <input type="color" />
+        <br />
+        <input type="file" />
+        <input type="range" />
+      </div>
+      <input type="submit" value="Login" />
+    </form>
+  </body>
+</html>

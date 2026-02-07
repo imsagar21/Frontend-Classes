@@ -1,0 +1,48 @@
+#container {
+  color: aqua;
+}
+#head {
+  color: aqua;
+}
+.para {
+  color: aqua;
+}
+div {
+  /* background-color: chocolate; */
+}
+
+div p {
+  /* background-color: lightgreen; */
+}
+
+div > p {
+  /* background-color: yellow; */
+}
+* {
+  font-family: "Roboto", sans-serif;
+  margin: 0;
+  padding: 0;
+}
+.hoveringTest:hover {
+  color: red;
+  font-weight: bold;
+}
+.anchor:visited .anchor:active {
+  color: yellow;
+}
+.anchor:link {
+  color: crimson;
+}
+.anchor:active {
+  color: green;
+}
+.para:active {
+  color: green;
+}
+.button:hover {
+  color: yellow;
+  background-color: lightblue;
+}
+.button:active {
+  background-color: blue;
+}

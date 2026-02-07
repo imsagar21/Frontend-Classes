@@ -1,0 +1,21 @@
+body {
+  background-color: red;
+}
+h1 {
+  border: 1px solid black;
+}
+span {
+  padding: 17px 19px 10px 20px;
+  border: 1px dashed purple;
+}
+
+#container {
+  background-color: yellow;
+}
+
+#wrapper {
+  background-color: green;
+}
+.section {
+  background-color: blue;
+}
