@@ -1,0 +1,63 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>DOM</title>
+  </head>
+  <body>
+    <!-- DOM -->
+    <input
+      type="text"
+      id="input"
+      class="inputclass"
+      placeholder="Type something..."
+    />
+    <button id="button" class="buttonclass">please click here</button>
+    <ul id="taskList">
+      <li><span>hsjkghdjkghd</span><button>tesing</button></li>
+    </ul>
+  </body>
+  <script>
+    const input = document.getElementById("input");
+    const inputByClass = document.getElementsByClassName("inputclass");
+    const inputByTag = document.getElementsByTagName("input");
+    const inputByQuery = document.querySelector(".inputclass");
+
+    const inputByQueryAll = document.querySelectorAll(".inputclass");
+    console.log(inputByQuery);
+
+    // console.log(input);
+    // console.log(inputByClass);
+    // console.log(inputByTag);
+    // console.log(inputByQuery);
+    // console.log(inputByQueryAll);
+    const x = document.getElementById("button");
+
+    const handleClick = () => {
+      if (input.value === "") {
+        alert("Please enter a task");
+        return;
+      }
+      const li = document.createElement("li");
+      // <li><span>hsjkghdjkghd</span><button>tesing</button></li>;
+      const span = document.createElement("span");
+      // <span>hsjkghdjkghd</span>;
+      const deleteButton = document.createElement("button");
+      // <button>tesing</button>;
+
+      deleteButton.addEventListener("click", () => {
+        li.remove();
+      });
+      span.textContent = input.value;
+      deleteButton.textContent = "testing";
+      li.appendChild(span);
+      li.appendChild(deleteButton);
+      const ul = document.getElementById("taskList");
+      ul.appendChild(li);
+      input.value = "";
+    };
+
+    x.addEventListener("click", handleClick);
+  </script>
+</html>
