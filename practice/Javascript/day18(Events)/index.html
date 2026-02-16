@@ -1,0 +1,68 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Events</title>
+  </head>
+  <body>
+    <h1>Events</h1>
+    <button id="myButton">Click me</button>
+    <input type="text" id="myInput" placeholder="Type something..." />
+
+    <form>
+      <input id="usernameInput" type="text" placeholder="Username" />
+      <input id="passwordInput" type="password" placeholder="Password" />
+      <button type="submit">Login</button>
+    </form>
+
+    <button id="submitButton">Submit</button>
+    <h1>Events</h1>
+
+    <script>
+      // Get the button element
+      const button = document.getElementById("myButton");
+      const input = document.getElementById("myInput");
+      const body = document.body;
+
+      input.addEventListener("input", function (event) {
+        console.log("Input event triggered!", event);
+        console.log("Input value:", event.target.value);
+      });
+
+      const usernameInput = document.querySelector("#usernameInput");
+      const passwordInput = document.querySelector("#passwordInput");
+      const submitButton = document.querySelector("#submitButton");
+
+      submitButton.addEventListener("submit", function () {
+        console.log("Submit button clicked!");
+      });
+      const form = document.querySelector("form");
+      // Add a submit event listener to the form
+      form.addEventListener("submit", function (event) {
+        event.preventDefault(); // Prevent the default form submission behavior
+        if (!usernameInput.value || !passwordInput.value) {
+          alert("Please fill in both fields.");
+          return;
+        }
+        console.log("Form submitted!");
+        console.log("Username:", usernameInput.value);
+        console.log("Password:", passwordInput.value);
+      });
+
+      // Add a click event listener to the button
+      button.addEventListener("click", function (event) {
+        console.log("Button clicked!", event);
+      });
+
+      // Add an input event listener to the input field
+      //   button.addEventListener("keypress", function (event) {
+      //     console.log("event:", event);
+      //     // console.log("Key pressed:", event.key)
+      //   });
+      //   body.addEventListener("mousemove", function (event) {
+      //     console.log("Mouse position:", event.clientX, event.clientY);
+      //   });
+    </script>
+  </body>
+</html>
