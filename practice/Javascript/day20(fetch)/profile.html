@@ -1,0 +1,88 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      .card {
+        width: 280px;
+        padding: 20px;
+        text-align: center;
+        border-radius: 15px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        font-family: sans-serif;
+        background: white;
+      }
+      #avatar {
+        border-radius: 50%;
+        border: 3px solid #6c63ff;
+        margin-bottom: 10px;
+      }
+      button {
+        background: #6c63ff;
+        color: white;
+        border: none;
+        padding: 10px 20px;
+        border-radius: 5px;
+        cursor: pointer;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="card" id="user-card">
+      <img id="avatar" src="https://via.placeholder.com/150" alt="User Photo" />
+      <h2 id="fullname">User Name</h2>
+      <p id="email">user@example.com</p>
+      <p id="location">City, Country</p>
+      <button id="gen-btn">Generate New User</button>
+    </div>
+
+    <script>
+      const avatar = document.getElementById("avatar");
+      const fullname = document.getElementById("fullname");
+      const email = document.getElementById("email");
+      const locationText = document.getElementById("location");
+      const btn = document.getElementById("gen-btn");
+
+      function fetchUser() {
+        // Show a loading state
+        btn.innerText = "Searching...";
+
+        fetch("https://randomuser.me/api/")
+          .then((response) => {
+            if (!response.ok) throw new Error("Network error");
+            return response.json();
+          })
+          .then((data) => {
+            // The API returns an array called 'results'
+            const user = data.results[0];
+
+            // Extracting data from the nested object
+            const name = `${user.name.first} ${user.name.last}`;
+            const userEmail = user.email;
+            const userCity = `${user.location.city}, ${user.location.country}`;
+            const userPhoto = user.picture.large;
+
+            // Update the DOM
+            fullname.innerText = name;
+            email.innerText = userEmail;
+            locationText.innerText = userCity;
+            avatar.src = userPhoto;
+
+            btn.innerText = "Generate New User";
+          })
+          .catch((err) => {
+            console.error(err);
+            fullname.innerText = "Failed to load user.";
+            btn.innerText = "Try Again";
+          });
+      }
+
+      btn.addEventListener("click", fetchUser);
+
+      // Load one user immediately on page start
+      fetchUser();
+    </script>
+  </body>
+</html>
