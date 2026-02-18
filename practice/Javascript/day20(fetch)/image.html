@@ -1,0 +1,57 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div class="container">
+      <h2>🐶 Random Dog Generator</h2>
+      <div id="image-loader">
+        <img
+          id="dog-img"
+          src=""
+          alt="Click the button!"
+          style="width: 300px; border-radius: 10px"
+        />
+      </div>
+      <br />
+      <button id="fetch-btn">Fetch New Dog!</button>
+    </div>
+    <script>
+      const dogImg = document.getElementById("dog-img");
+      const button = document.getElementById("fetch-btn");
+
+      function getNewDog() {
+        // 1. Visual feedback for the user
+        button.innerText = "Loading...";
+
+        // 2. The Fetch call
+        fetch("https://dog.ceo/api/breeds/image/random")
+          .then((response) => {
+            if (!response.ok) {
+              throw new Error("Something went wrong with the network");
+            }
+            return response.json(); // Convert response to JS Object
+          })
+          .then((data) => {
+            // 3. 'data.message' holds the image URL
+            dogImg.src = data.message;
+            button.innerText = "Fetch New Dog!";
+          })
+          .catch((error) => {
+            console.error("Fetch error:", error);
+            alert("Failed to get a doggo. Check your connection!");
+            button.innerText = "Try Again";
+          });
+      }
+
+      // Run on click
+      button.addEventListener("click", getNewDog);
+
+      // Run once on page load so it's not empty
+      getNewDog();
+    </script>
+  </body>
+</html>

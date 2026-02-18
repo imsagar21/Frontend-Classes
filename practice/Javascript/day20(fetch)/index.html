@@ -1,0 +1,48 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Fetch</title>
+  </head>
+  <body>
+    <div class="card">
+      <p id="quote">Push the button to get inspired...</p>
+      <h4 id="author"></h4>
+      <button id="btn">New Quote</button>
+    </div>
+  </body>
+  <script>
+    const quoteText = document.getElementById("quote");
+    const authorText = document.getElementById("author");
+    const button = document.getElementById("btn");
+
+    // NEW API URL (No key required for basic use)
+    const API_URL = "https://corsproxy.io/?https://zenquotes.io/api/random";
+
+    function getQuote() {
+      quoteText.innerText = "Loading...";
+      authorText.innerText = "";
+
+      fetch(API_URL)
+        .then((response) => {
+          if (!response.ok) throw new Error("API Limit reached or Down");
+          return response.json();
+        })
+        .then((data) => {
+          console.log(data, "data");
+
+          // ZenQuotes returns an array: [{ q: "quote", a: "author", ... }]
+          const quoteData = data[0];
+          quoteText.innerText = `"${quoteData.q}"`;
+          authorText.innerText = `- ${quoteData.a}`;
+        })
+        .catch((error) => {
+          quoteText.innerText = "Could not fetch quote. Try again!";
+          console.error("Error:", error);
+        });
+    }
+
+    button.addEventListener("click", getQuote);
+  </script>
+</html>
